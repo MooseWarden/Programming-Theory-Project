@@ -16,16 +16,19 @@ public class MenuUIScript : MonoBehaviour
 {
     public TMP_InputField playerNameInput;
 
+    [HideInInspector] public string baseDescription;
+
     // Start is called before the first frame update
     void Start()
     {
+        TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
 
-    }
+        if (SceneManager.GetActiveScene().name == "Main" && GameManager.instance != null)
+        {
+            describeText.text = "Please select a shape from the list, " + GameManager.instance.playerName + ".";
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        baseDescription = describeText.text;
     }
 
     public void StartGame()

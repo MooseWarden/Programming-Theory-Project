@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public string playerName = "Player";
+    [HideInInspector] public string playerName = "Player";
 
     private void Awake()
     {

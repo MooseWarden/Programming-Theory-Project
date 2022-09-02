@@ -21,6 +21,22 @@ public class ButtonScript : MonoBehaviour
 
     public void ToggleShape()
     {
-        shape.SetActive((toggle = !toggle));
+        toggle = !toggle;
+
+        if (toggle == true)
+        {
+            shape.GetComponent<ShapeScript>().DisplayText();
+        }
+        else if (toggle == false)
+        {
+            shape.GetComponent<ShapeScript>().RevertText();
+        }
+
+        shape.SetActive(toggle);
+    }
+
+    public void ForceOff()
+    {
+        shape.SetActive((toggle = false));
     }
 }
