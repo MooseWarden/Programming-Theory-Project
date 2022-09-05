@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//execute this after shapes to make sure shapes are loaded in before pulling shape data
+[DefaultExecutionOrder(999)]
+
 public class ButtonScript : MonoBehaviour
 {
     public GameObject shape; //have to populate this in editor

@@ -23,12 +23,12 @@ public class CapsuleScript : ShapeScript //inheritance
     public override void ChangeColor()
     {
         Color = GetComponent<MeshRenderer>().material;
-        Color.color = new Color(0f, 1f, 0f);
+        Color.color = new Color(1f, 1f, 0f);
     }
 
     public override void DisplayText()
     {
         TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
-        describeText.text = "This is a capsule. Can be used for whatever your heart desires.";
+        describeText.text = "This is a " + ObjName + ". Can be used for whatever your heart desires.";
     }
 }

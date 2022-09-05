@@ -21,14 +21,17 @@ public class MenuUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
-
-        if (SceneManager.GetActiveScene().name == "Main" && GameManager.instance != null)
+        if (SceneManager.GetActiveScene().name == "Main")
         {
-            describeText.text = "Please select a shape from the list, " + GameManager.instance.playerName + ".";
-        }
+            TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
 
-        baseDescription = describeText.text;
+            if (GameManager.instance != null)
+            {
+                describeText.text = "Please select a shape from the list, " + GameManager.instance.playerName + ".";
+            }
+
+            baseDescription = describeText.text;
+        }
     }
 
     public void StartGame()

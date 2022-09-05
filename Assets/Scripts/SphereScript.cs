@@ -29,6 +29,6 @@ public class SphereScript : ShapeScript //inheritance
     public override void DisplayText()
     {
         TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
-        describeText.text = "This is a sphere. Is it even spinning?";
+        describeText.text = "This is a " + ObjName + ". Is it even spinning?";
     }
 }

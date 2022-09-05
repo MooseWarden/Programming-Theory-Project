@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CubeScript : ShapeScript //inheritance
+public class PlaneScript : ShapeScript //inheritance
 {
     // Start is called before the first frame update
     void Start()
@@ -23,12 +23,12 @@ public class CubeScript : ShapeScript //inheritance
     public override void ChangeColor()
     {
         Color = GetComponent<MeshRenderer>().material;
-        Color.color = new Color(1f, 0f, 0f);
+        Color.color = new Color(0f, 1f, 0.3f);
     }
 
     public override void DisplayText()
     {
         TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
-        describeText.text = "This is a " + ObjName + ". Marvel at its many sides.";
+        describeText.text = "This is a " + ObjName + ". Very popular with putting stuff on it.";
     }
 }
