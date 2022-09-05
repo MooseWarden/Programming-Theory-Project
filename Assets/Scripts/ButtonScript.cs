@@ -11,18 +11,18 @@ public class ButtonScript : MonoBehaviour
     public GameObject shape; //have to populate this in editor
 
     private TextMeshProUGUI buttonName;
-    private bool toggle;
+    private bool toggle = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        toggle = false;
         buttonName = GetComponentInChildren<TextMeshProUGUI>();
         buttonName.text = shape.GetComponent<ShapeScript>().ObjName + " Button";
         shape.SetActive(toggle);
     }
 
-    public void ToggleShape()
+    //ABSTRACTION: to be used by the button object On Click() function
+    public void ToggleShape() //turns shape on/off as well as altering display text accordingly
     {
         toggle = !toggle;
 
@@ -38,7 +38,8 @@ public class ButtonScript : MonoBehaviour
         shape.SetActive(toggle);
     }
 
-    public void ForceOff()
+    //ABSTRACTION: to be used by the button object On Click() function
+    public void ForceOff() //deactivates shape 
     {
         shape.SetActive((toggle = false));
     }

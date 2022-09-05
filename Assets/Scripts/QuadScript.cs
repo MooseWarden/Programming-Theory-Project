@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class QuadScript : ShapeScript //inheritance
+public class QuadScript : ShapeScript //INHERITANCE
 {
     // Start is called before the first frame update
     void Start()
@@ -19,16 +19,15 @@ public class QuadScript : ShapeScript //inheritance
         SpinObj();
     }
 
-    //polymorphism
-    public override void ChangeColor()
+    public override void ChangeColor() //POLYMORPHISM
     {
         Color = GetComponent<MeshRenderer>().material;
         Color.color = new Color(0.4f, 0f, 1f);
     }
 
-    public override void DisplayText()
+    public override void DisplayText() //POLYMORPHISM
     {
         TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
-        describeText.text = "This is a " + ObjName + ". A discount plane for all intents and purposes.";
+        describeText.text = "This is a " + ObjName + ". A discount Plane for all intents and purposes.";
     }
 }

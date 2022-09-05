@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
 
 #if UNITY_EDITOR
@@ -14,14 +13,19 @@ using UnityEditor;
 
 public class MenuUIScript : MonoBehaviour
 {
-    public TMP_InputField playerNameInput;
+    private TMP_InputField playerNameInput;
 
     [HideInInspector] public string baseDescription;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Main")
+        //grab input field in menu scene or grab description text in main scene, used to keep everything private and prevent cross scene issues
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            playerNameInput = GameObject.Find("NameInput").GetComponent<TMP_InputField>();
+        }
+        else if (SceneManager.GetActiveScene().name == "Main")
         {
             TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
 
@@ -34,8 +38,9 @@ public class MenuUIScript : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void StartGame() //ABSTRACTION 
     {
+        //check if input field is empty before loading next scene, use default value if so
         if (playerNameInput.text.Trim().Length == 0)
         {
             GameManager.instance.playerName = "Player";
@@ -48,7 +53,7 @@ public class MenuUIScript : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
-    public void ExitGame()
+    public void ExitGame() //ABSTRACTION
     {
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();

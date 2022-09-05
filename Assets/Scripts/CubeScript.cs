@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CubeScript : ShapeScript //inheritance
+public class CubeScript : ShapeScript //INHERITANCE
 {
     // Start is called before the first frame update
     void Start()
@@ -19,14 +19,13 @@ public class CubeScript : ShapeScript //inheritance
         SpinObj();
     }
 
-    //polymorphism
-    public override void ChangeColor()
+    public override void ChangeColor() //POLYMORPHISM
     {
         Color = GetComponent<MeshRenderer>().material;
         Color.color = new Color(1f, 0f, 0f);
     }
 
-    public override void DisplayText()
+    public override void DisplayText() //POLYMORPHISM
     {
         TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
         describeText.text = "This is a " + ObjName + ". Marvel at its many sides.";

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlaneScript : ShapeScript //inheritance
+public class PlaneScript : ShapeScript //INHERITANCE
 {
     // Start is called before the first frame update
     void Start()
@@ -19,16 +19,15 @@ public class PlaneScript : ShapeScript //inheritance
         SpinObj();
     }
 
-    //polymorphism
-    public override void ChangeColor()
+    public override void ChangeColor() //POLYMORPHISM
     {
         Color = GetComponent<MeshRenderer>().material;
         Color.color = new Color(0f, 1f, 0.3f);
     }
 
-    public override void DisplayText()
+    public override void DisplayText() //POLYMORPHISM
     {
         TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
-        describeText.text = "This is a " + ObjName + ". Very popular with putting stuff on it.";
+        describeText.text = "This is a " + ObjName + ". Backface not included.";
     }
 }

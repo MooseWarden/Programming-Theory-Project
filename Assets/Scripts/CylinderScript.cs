@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CylinderScript : ShapeScript //inheritance
+public class CylinderScript : ShapeScript //INHERITANCE
 {
     // Start is called before the first frame update
     void Start()
@@ -19,14 +19,13 @@ public class CylinderScript : ShapeScript //inheritance
         SpinObj();
     }
 
-    //polymorphism
-    public override void ChangeColor()
+    public override void ChangeColor() //POLYMORPHISM
     {
         Color = GetComponent<MeshRenderer>().material;
         Color.color = new Color(1f, 0.6f, 0f);
     }
 
-    public override void DisplayText()
+    public override void DisplayText() //POLYMORPHISM
     {
         TextMeshProUGUI describeText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
         describeText.text = "This is a " + ObjName + ". Classic and timeless!";
